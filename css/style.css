@@ -1,0 +1,1647 @@
+*{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+*:focus{
+  outline: none;
+}
+body{
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "slnt" 2;
+}
+html{
+  scroll-behavior: smooth;
+}
+/* GLOBAL RULES ________________________________________________________________________________________________________________*/
+
+ul{
+  margin: 0;
+  padding: 0;
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  display: block;
+}
+h1,h2,h3,h4,h5,h6,p{
+  margin: 0;
+}
+
+/* VARIABLES ________________________________________________________________________________________________________________*/
+
+:root{
+  --transition: 0.3s;
+  --blue-color: #0075ff;
+  --blue-alt-color: #0d69d5;
+  --orange-color: #f59e0b;
+  --green-color: #22c55e;
+  --red-color: #f44336;
+  --grey-color: #888;
+}
+
+/* SCROLLBAR ________________________________________________________________________________________________________________*/
+
+::-webkit-scrollbar{
+  width: 15px;
+}
+::-webkit-scrollbar-track{
+  background-color: white;
+}
+::-webkit-scrollbar-thumb{
+  background-color: var(--blue-color);
+}
+::-webkit-scrollbar-thumb:hover{
+  background-color: var(--blue-alt-color);
+}
+
+/* SIDEBAR _____________________________________________________________________________________________________________________*/
+
+.page{
+  min-height: 100vh;
+  background-color: #f1f5f9;
+}
+.sidebar{
+  background-color: white;
+  width:250px;
+  box-shadow: 0 0 10px #ddd;
+  z-index: 1;
+}
+.sidebar h3{
+  width: fit-content;
+  margin: 0;
+  padding: 0 10px 20px 10px;
+  border-bottom: 2px solid black;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.sidebar h3::after{
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  border-radius: 50%;
+  border: 4px solid white;
+  background-color: black;
+  bottom: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.sidebar ul{
+  padding: 30px 0;
+}
+.sidebar ul li a{
+  margin-bottom: 7px;
+  transition: var(--transition);
+}
+.sidebar ul li .active{
+  background-color: #f1f1f1;
+}
+.sidebar ul li a i{
+  margin-right: 10px;
+}
+.sidebar ul li a:hover{
+  background-color: #f1f1f1;
+}
+
+@media (max-width:767px) {
+  .sidebar{
+    width: fit-content;
+    padding: 10px;
+  }
+  .sidebar h3{
+    font-size: 13px;
+    border: none;
+    padding: 0;
+    letter-spacing: -1px;
+  }
+  .sidebar h3::after{
+    display: none;
+  }
+  .sidebar ul li{
+    text-align: center;
+  }
+  .sidebar ul{
+    padding: 15px 0;
+  }
+  .sidebar ul li a i{
+    margin: 0;
+  }
+  .sidebar ul li a span{
+    display: none;
+  }
+}
+
+/* CONTENT _____________________________________________________________________________________________________________________*/
+
+.content{
+  width: 100%;
+  overflow: hidden;  /*__ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! __*/
+}
+
+/* HEAD _____________________________________________________________________________________________________________________*/
+
+.content .head{
+  background-color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.content .head .icon img{
+  width: 32px;
+}
+.content .head .icon i{
+  position: relative;
+}
+.content .head .icon i::after{
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: var(--red-color);
+  border-radius: 50%;
+  top: -15px;
+  right: -5px;
+}
+.content .head input{
+  border: 1px solid #ddd;
+  position: relative;
+  padding-left: 30px;
+  width: 170px;
+  transition: var(--transition);
+}
+.content .head form{
+  position: relative;
+}
+.content .head form::before{
+  content: '\f002';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  color: var(--grey-color);
+  left: 10px;
+  top: 10px;
+  z-index: 1;
+}
+.content .head input:focus::placeholder{
+  opacity: 0;
+  transition: var(--transition);
+}
+.content .head input:focus{
+  width: 200px;
+}
+
+/* DASHBOARD _____________________________________________________________________________________________________________________*/
+
+.content .section > h1{
+  padding: 5px 0 10px;
+  margin-bottom: 30px;
+}
+.content .section > h1::before{
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 70%;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+}
+.content .section > h1::after{
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 25%;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+}
+
+@media (max-width:767px) {
+  .content .section{
+    padding: 10px;
+  }
+}
+
+/* WIDGETS _____________________________________________________________________________________________________________________*/
+
+/* WELCOME _____________________________________________________________________________________________________________________*/
+
+
+.widgets .info1{
+  padding-bottom: 10px;
+}
+.widgets .welcome .info1 span{
+  color: var(--grey-color);
+  margin-bottom: 20px;
+}
+.widgets .welcome img{
+  width: 200px;
+}
+.widgets .welcome .info2 h3{
+  margin-bottom: 10px;
+  font-weight: normal;
+  font-size: 16px;
+}
+.widgets .welcome .info2 span{
+  font-size: 15px;
+  font-weight: normal;
+  margin: 0;
+}
+.widgets .welcome .info2 .image{
+  padding-left: 20px;
+}
+.widgets .welcome .info2 img{
+  width: 60px; 
+  position: relative;
+  top: -34px;
+  border: 4px solid white;
+  border-radius: 50%;
+}
+.widgets .welcome .info2 hr{
+  border-top: none;
+  border-bottom-color: #ddd;
+}
+.widgets .welcome .info2 a{
+  background-color: var(--blue-color);
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: auto;
+  transition: var(--transition);
+}
+.widgets .welcome .info2 a:hover{
+  background-color: var(--blue-alt-color);
+}
+
+@media (max-width:767px) {
+  .widgets{
+    grid-template-columns: minmax(200px, 1fr);
+    gap: 10px;
+  }
+  .widgets .welcome .info1 img{
+    display: none;
+  }
+  .widgets .welcome .info1{
+    padding-bottom: 25px;
+    justify-content: center;
+  }
+  .widgets .welcome .info2 .image{
+    padding: 0;
+  }
+  .widgets .welcome .info2 .information{
+    flex-direction: column;
+  }
+  .widgets .welcome .info2 .information .box:not(:last-child){
+    padding-bottom: 20px;
+  }
+}
+
+/* QUICK_DRAFT _____________________________________________________________________________________________________________________*/
+
+.widgets .quick_draft > span{
+  color: var(--grey-color);
+  margin-bottom: 20px;
+}
+
+.widgets .quick_draft input, .widgets .quick_draft textarea{
+  margin-bottom: 20px;
+  border: none;
+}
+.widgets .quick_draft textarea{
+  resize: none;
+  height: 180px;
+}
+.widgets .quick_draft input[type="submit"]{
+  width: fit-content;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: block;
+  margin-left: auto;
+  margin-bottom: 0;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.widgets .quick_draft input[type="submit"]:hover{
+  background-color: var(--blue-alt-color);
+}
+
+/* YEARLY_TARGETS _____________________________________________________________________________________________________________________*/
+
+.widgets .yearly_targets > span{
+  color: var(--grey-color);
+  margin-bottom: 20px;
+}
+.yearly_targets .box{
+  padding-bottom: 20px;
+  gap: 20px;
+}
+.yearly_targets .box .icon{
+  width: 80px;
+  height: 80px;
+  background-color: #888;
+}
+.yearly_targets .box:nth-child(1) .icon,.yearly_targets .box:nth-child(1) .progress{
+  background-color: #0075ff35;
+}
+.yearly_targets .box:nth-child(2) .icon,.yearly_targets .box:nth-child(2) .progress{
+  background-color: #f59e0b35;
+}
+.yearly_targets .box:nth-child(3) .icon,.yearly_targets .box:nth-child(3) .progress{
+  background-color: #22c55e35;
+}
+.yearly_targets .box .details{
+  flex: 1;
+}
+.yearly_targets .box .progress{
+  height: 4px;
+  width: 100%;
+}
+.yearly_targets .box p{
+  padding: 10px 10px 10px 0;
+}
+
+.yearly_targets .box .progress::after{
+  position: absolute;
+  padding: 5px;
+  font-size: 14px;
+  color: white;
+  top: -40px;
+  transform: translateX(-50%);
+}
+.yearly_targets .box:nth-child(1) .progress::after{
+  content: '80%';
+  background-color: var(--blue-color);
+  left: 80%;
+}
+.yearly_targets .box:nth-child(2) .progress::after{
+  content: '55%';
+  background-color: var(--orange-color);
+  left: 55%;
+}
+.yearly_targets .box:nth-child(3) .progress::after{
+  content: '75%';
+  background-color: var(--green-color);
+  left: 75%;
+}
+
+.yearly_targets .box .progress::before{
+  content: '';
+  position: absolute;
+  border-width: 7px;
+  border-style: solid;
+  top: -15px;
+  transform: translateX(-50%);
+}
+.yearly_targets .box:nth-child(1) .progress::before{
+  border-color: var(--blue-color) transparent transparent transparent;
+  left: 80%;
+}
+.yearly_targets .box:nth-child(2) .progress::before{
+  border-color: var(--orange-color) transparent transparent transparent;
+  left: 55%;
+}
+.yearly_targets .box:nth-child(3) .progress::before{
+  border-color: var(--green-color) transparent transparent transparent;
+  left: 75%;
+}
+
+@media (max-width:440px) {
+.yearly_targets .box .icon{
+  width: 65px;
+  height: 65px;
+}
+}
+
+/* TICKETS _____________________________________________________________________________________________________________________*/
+
+.tickets span{
+  color: var(--grey-color);
+  margin-bottom: 20px;
+}
+.tickets .box{
+  border: 1px solid #ddd;
+}
+.tickets .box i{
+  font-size: 25px;
+}
+
+/* NEWS _____________________________________________________________________________________________________________________*/
+
+.news .box{
+  padding-top: 20px;
+  gap: 15px;
+}
+.news .box:not(:last-child){
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+.news .box img{
+  width: 100px;
+}
+.news .box .text h3{
+  font-size: 17px;
+}
+.news .box .text span{
+  color: var(--grey-color);
+  padding-top: 10px;
+  font-size: 15px;
+}
+.news .box .date{
+  margin-left: auto;
+}
+
+@media (max-width:767px){
+  .news .box{
+    flex-direction: column;
+  }
+  .news .box .date{
+    margin-right: auto;
+  }
+}
+
+/* TASKS _____________________________________________________________________________________________________________________*/
+
+.tasks .box span{
+  color: var(--grey-color);
+  padding-top: 10px;
+}
+.tasks .box{
+  padding-top: 15px;
+}
+.tasks .box:not(:last-child){
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+.tasks .box i{
+  cursor: pointer;
+  margin-left: 10px;
+}
+.tasks .box:not(:nth-last-of-type(2)) i:hover{
+  color: var(--red-color);
+  transition: var(--transition);
+}
+.tasks .box:nth-last-of-type(2) .text h3, .tasks .box:nth-last-of-type(2) .text span{
+  text-decoration: line-through;
+  opacity: 0.3;
+}
+.tasks .box:nth-last-of-type(2) i{
+  opacity: 0.3;
+}
+
+/* ITEMS _____________________________________________________________________________________________________________________*/
+
+.items h2{
+  padding-bottom: 20px;
+}
+.items .boxes{
+  padding-top: 10px;
+}
+.items .text span{
+  color: var(--grey-color);
+}
+.items .box{
+  padding: 15px 0;
+}
+.items .box:last-child{
+  padding-bottom: 0;
+}
+
+/* UPLOADS _____________________________________________________________________________________________________________________*/
+
+.uploads .boxes{
+  padding-top: 15px;
+}
+.uploads .box{
+  padding-top: 10px;
+  gap: 10px;
+}
+.uploads .box:not(:last-child){
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+.uploads .box img{
+  width: 40px;
+}
+.uploads .box .text span{
+  color: var(--grey-color);
+  padding-top: 5px;
+  font-size: 15px;
+}
+.uploads .box .size{
+  margin-left: auto;
+}
+
+@media (max-width:767px){
+  .uploads .box{
+    flex-direction: column;
+  }
+  .uploads .box .size{
+    margin-right: auto;
+  }
+}
+
+/* PROJECT-PROGRESS _____________________________________________________________________________________________________________________*/
+
+.project-prog .boxes{
+  margin-top: 20px;
+}
+.project-prog .boxes .box{
+  margin-bottom: 20px;
+  gap: 15px;
+  position: relative;
+  z-index: 1;
+}
+.project-prog img{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 150px;
+  opacity: 0.2;
+}
+.project-prog .boxes .box .blue{
+  width: 25px;
+  height: 25px;
+  background-color: var(--blue-color);
+  border: 2px solid white;
+}
+.project-prog .boxes .current .blue{
+  animation: hide 2s linear infinite;
+}
+.project-prog .boxes .still .blue{
+  background-color: white;
+}
+.project-prog .boxes .box .blue::before{
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background-color: transparent;
+  border: 2px solid var(--blue-color);
+  border-radius: 50%;
+}
+.project-prog .boxes::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 13px;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background-color: var(--blue-color);
+}
+
+@keyframes hide {
+  0%,100%{
+    background-color: white;
+  }
+  50%{
+    background-color: var(--blue-color);
+  }
+}
+
+.project-prog .boxes .box p{
+  flex: 1;
+}
+
+/* REMINDERS _____________________________________________________________________________________________________________________*/
+
+.reminders .boxes{
+  margin-top: 20px;
+}
+.reminders .boxes .box{
+  padding-left: 50px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.reminders .boxes .box h3{
+  padding-bottom: 15px;
+  font-size: 15px;
+}
+.reminders .boxes .box::before{
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+.reminders .boxes .box:first-child::before{
+  background-color: var(--blue-color);
+}
+.reminders .boxes .box:nth-child(2)::before{
+  background-color: var(--green-color);
+}
+.reminders .boxes .box:nth-child(3)::before{
+  background-color: var(--orange-color);
+}
+.reminders .boxes .box:last-child::before{
+  background-color: var(--red-color);
+}
+
+.reminders .boxes .box::after{
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  top: 0;
+  left: 30px;
+}
+.reminders .boxes .box:first-child::after{
+  background-color: var(--blue-color);
+}
+.reminders .boxes .box:nth-child(2)::after{
+  background-color: var(--green-color);
+}
+.reminders .boxes .box:nth-child(3)::after{
+  background-color: var(--orange-color);
+}
+.reminders .boxes .box:last-child::after{
+  background-color: var(--red-color);
+}
+
+/* POSTS _____________________________________________________________________________________________________________________*/
+
+.posts .info{
+  margin-top: 20px;
+  gap: 20px;
+}
+.posts .info img{
+  width: 50px;
+}
+.posts .info .text h3{
+  padding-bottom: 10px;
+}
+.posts p{
+  padding: 20px 0;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left: none;
+  border-right: none;
+  line-height: 1.7;
+  font-size: 17px;
+  text-transform: capitalize;
+}
+.posts .likes::before{
+  content: '\f004';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+.posts .comments::before{
+  content: '\f086';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+/* SOCIAL _____________________________________________________________________________________________________________________*/
+
+.social .boxes{
+  margin-top: 20px;
+}
+.social .boxes .box{
+  margin-bottom: 10px;
+}
+.social .boxes .box .icon{
+  width: 52px;
+  height: 55px;
+  transition: var(--transition);
+}
+.social .boxes .box:hover .icon{
+  transform: rotate(5deg);
+}
+.social .boxes .box .icon i{
+  font-size: 35px;
+  color: white;
+}
+.social .boxes .twitter .icon, .social .boxes .twitter .text .main-btn{
+  background-color:	#1DA1F2;
+}
+.social .boxes .facebook .icon, .social .boxes .facebook .text .main-btn{
+  background-color: #1877F2;
+}
+.social .boxes .youtube .icon, .social .boxes .youtube .text .main-btn{
+  background-color: #FF0000;
+}
+.social .boxes .linkedin .icon, .social .boxes .linkedin .text .main-btn{
+  background-color:	#0077B5;
+}
+.social .boxes .box .text{
+  flex: 1;
+  padding: 15px;
+  height: 55px;
+}
+.social .boxes .twitter{
+  background-color:	#1da0f240;
+  color: #1DA1F2;
+}
+.social .boxes .facebook{
+  background-color: #1877F240;
+  color: #1877F2;
+}
+.social .boxes .youtube{
+  background-color: #FF000040;
+  color: #FF0000;
+}
+.social .boxes .linkedin{
+  background-color:	#0077B540;
+  color: #0077B5;
+}
+.social .boxes .box .text .main-btn{
+  cursor: pointer;
+}
+
+/* PROJECTS _____________________________________________________________________________________________________________________*/
+
+.projects{
+  margin: 0 20px;
+  overflow-x: auto;
+}
+.projects table{
+  margin-top: 20px;
+  min-width: 1050px;
+  font-size: 15px;
+  border-spacing: 0;
+}
+.projects table thead th{
+  text-align: left;
+  background-color: #f1f1f1;
+  padding: 15px;
+}
+.projects table tbody td{
+  padding: 15px;
+  border-left: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.projects table tbody td:last-child{
+  border-right: 1px solid #eee;
+}
+.projects table tbody .images .image{
+  width: 15px;
+}
+.projects table tbody .images .image img{
+  width: 30px;
+  border: 2px solid white;
+}
+.projects table tbody tr{
+  transition: var(--transition);
+}
+.projects table tbody tr:hover{
+  background-color: #f1f5f9;
+}
+
+
+/* SETTINGS _____________________________________________________________________________________________________________________*/
+
+/* WIDGETS _____________________________________________________________________________________________________________________*/
+
+/* SITE-CONTROL _____________________________________________________________________________________________________________________*/
+
+.site-control .min-control{
+  margin: 20px 0;
+}
+.site-control .min-control .info{
+  flex: 1;
+}
+.button input{
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+.button .toggle{
+  width: 80px;
+  height: 33px;
+  border-radius: 50px;
+  background-color: #c1c1c1;
+  transition: var(--transition);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.button .toggle .switch{
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: 5px;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button .toggle .switch .check{
+  display: none;
+}
+.button .toggle .switch .uncheck{
+  color: #c1c1c1;
+  transition: var(--transition);
+}
+.button input:checked +.toggle{
+  background-color: var(--blue-color);
+}
+.button input:checked + .toggle .switch{
+  left: calc(100% - 25px - 5px);
+}
+.button input:checked + .toggle .switch .check{
+  display: inline;
+  color: var(--blue-color);
+}
+.button input:checked + .toggle .switch .uncheck{
+  display: none;
+}
+.site-control form textarea{
+  width: 100%;
+  height: 150px;
+  resize: none;
+  border-color: #ccc;
+}
+
+/* GENERAL _____________________________________________________________________________________________________________________*/
+
+.general > div{
+  padding-top: 15px;
+}
+.general > div p{
+  padding-bottom: 5px;
+}
+.general > div form input[type="text"]{
+  width: 100%;
+  border: 1px solid #ccc;
+}
+.general > div form input[type="email"]{
+  flex: 1;
+  border: 1px solid #ccc;
+  background-color: #f1f5f9;
+  cursor: no-drop;
+  min-width: 200px;
+}
+.general > div form input[type="email"]::placeholder{
+  opacity: 0.5;
+}
+.general > div form input[type="submit"]{
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  color: var(--blue-color);
+}
+
+/* SECURITY _____________________________________________________________________________________________________________________*/
+ 
+.security > div{
+  padding: 20px 0;
+}
+.security > div:not(:last-child){
+  border-bottom: 1px solid #eee;
+}
+.security > div .main-btn{
+  font-size: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.security .password .main-btn:hover{
+  background-color: var(--blue-alt-color);
+}
+
+/* SOCIAL _____________________________________________________________________________________________________________________*/
+
+.settings .social .box:nth-of-type(1){
+  margin-top: 20px;
+}
+.settings .social .box{
+  height: 40px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+.settings .social .box .icon{
+  width: 40px;
+  height: 100%;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #ccc;
+  color: #777;
+  transition: var(--transition);
+}
+.settings .social .box form{
+  flex: 1;
+}
+.settings .social .box form input{
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #f4f4f4;
+}
+.settings .social .box:focus-within .icon{   /*______!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!_______*/
+  color: black;
+}
+
+/* WIDGETS-CONTROL _____________________________________________________________________________________________________________________*/
+
+.widgets-control .box:nth-of-type(1){
+  margin-top: 15px;
+}
+.widgets-control .box{
+  padding-bottom: 15px;
+  width: fit-content;
+}
+.widgets-control .box label{
+  gap: 10px;
+}
+.widgets-control .box label input{
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+.widgets-control .box label .check{
+  width: 18px;
+  height: 18px;
+  border: 2px solid #777;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.widgets-control .box label .check::before{
+  content: '\f00c';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  background-color: var(--blue-color);
+  color: white;
+  transition: var(--transition);
+  width: 0;
+  height: 0;
+  font-size: 0;
+}
+.widgets-control .box label input:checked + .check::before{
+  transform: rotate(720deg);
+  width: 100%;
+  height: 100%;
+  font-size: 13px;
+  padding: 1px;
+}
+
+.widgets-control .box label:hover .check{
+  border-color: var(--blue-color);
+}
+.widgets-control .box label input:checked + .check{
+  border-color: var(--blue-color);
+}
+
+/* BACKUP _____________________________________________________________________________________________________________________*/
+
+.backup .box{
+  margin-top: 20px;
+}
+.backup .time{
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+.backup .box input{
+  -webkit-apperance: none;
+  appearance: none;
+  display: none;
+}
+.backup .box label{
+  padding-left: 35px;
+  cursor: pointer;
+  height: 23px;
+  width: fit-content;
+}
+.backup .box label::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 21px;
+  height: 21px;
+  border: 2px solid #888;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+.backup .box label::after{
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 4px;
+  width: 15px;
+  height: 15px;
+  background-color: var(--blue-color);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: var(--transition);
+}
+.backup .box input:checked + label::after{
+  transform: scale(1);
+}
+.backup .box input:checked + label::before{
+  border: 2px solid var(--blue-color);
+}
+
+.backup .place{
+  margin-top: 20px;
+}
+.backup .place input{
+  -webkit-apperance: none;
+  appearance: none;
+  display: none;
+}
+.backup .place label{
+  border: 2px solid #ccc;
+  padding: 15px;
+  flex-direction: column;
+  gap: 10px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.backup .place label::before{
+  content: '\f233';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+
+.backup .place input:checked + label{
+  border: 2px solid var(--blue-color);
+  color: var(--blue-color);
+}
+
+
+/* PROFILE _____________________________________________________________________________________________________________________*/
+
+/* WIDGETS _____________________________________________________________________________________________________________________*/
+
+/* INFORMATIONS _____________________________________________________________________________________________________________________*/
+
+.informations{
+  grid-column: span 3;
+}
+.informations .info{
+  flex-basis: 240px;
+  text-align: center;
+}
+.informations .info img{
+  width: 120px;
+}
+.informations .info .progress{
+  width: 60%;
+  height: 6px;
+  background-color: #eee;
+  display: inline-block;
+}
+.informations .info .progress::before{
+  content: '';
+  position: absolute;
+  width: 70%;
+  height: 100%;
+  background-color: var(--blue-color);
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.informations .diff-info{
+  flex: 1;
+}
+.informations .diff-info .box{
+  border-left: 1px solid #eee;
+  color: #777;
+  transition: var(--transition);
+}
+.informations .diff-info .box:not(:last-child){
+  border-bottom: 1px solid #eee;
+}
+.informations .diff-info .box:hover{
+  background-color: #f8f8f8;
+}
+.informations .diff-info .box p span{
+  color: black;
+  margin-right: 30px;
+}
+.informations .diff-info .box h4{
+  font-weight: normal;
+}
+.informations .diff-info .box .random{
+  gap: 10px;
+  padding: 10px 0;
+  flex-wrap: wrap;
+}
+
+.informations .diff-info .box .button .toggle{
+  height: 20px;
+}
+.informations .diff-info .box .button .toggle .switch{
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  left: 3px;
+}
+.informations .diff-info .box .button input:checked + .toggle .switch{
+  left: calc(100% - 15px - 3px);
+}
+
+@media (max-width:767px) {
+  .informations{
+    flex-direction: column;
+    padding-top: 20px;
+    align-items: normal;
+  }
+  .informations .diff-info .box{
+    border-left: none;
+  }
+}
+
+/* SKILLS _____________________________________________________________________________________________________________________*/
+
+.skills .box{
+  padding: 15px 0;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.skills .box:not(:last-child){
+  border-bottom: 1px solid #eee;
+}
+
+
+@media (max-width:767px) {
+  .skills .box{
+    justify-content: center;
+  }
+}
+
+/* ACTIVITIES _____________________________________________________________________________________________________________________*/
+
+.activities{
+  grid-column: span 2;
+}
+.activities .box{
+  gap: 10px;
+  padding: 20px 0;
+}
+.activities .box:not(:last-child){
+  border-bottom: 1px solid #eee;
+}
+.activities .box img{
+  width: 65px;
+}
+.activities .box .info{
+  flex: 1;
+}
+.activities .box .info .date{
+  text-align: end;
+}
+@media (max-width:767px) {
+  .activities .box,.activities .box .info{
+    flex-direction: column;
+    text-align: center;
+  }
+  .activities .box .info .date{
+    text-align: center;
+    padding-top: 10px;
+  }
+}
+
+
+@media (max-width:991px) {
+  .skills, .activities{
+    grid-column: span 3;
+  }
+}
+
+/* PROJECTS-PAGE _____________________________________________________________________________________________________________________*/
+
+/* WIDGETS _____________________________________________________________________________________________________________________*/
+
+/* BOXES _____________________________________________________________________________________________________________________*/
+
+
+.projects-page .box .date{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.projects-page .box .info{
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+.projects-page .box .info h4{
+  font-weight: normal;
+}
+.projects-page .box .info span{
+  padding-bottom: 55px;
+}
+.projects-page .box a{
+  display: inline;
+  transition: var(--transition);
+}
+.projects-page .box a img{
+  width:40px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+.projects-page .box a:not(:first-of-type){
+  margin-left: -20px;
+}
+.projects-page .box a:hover{
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+.projects-page .box a:hover img{
+  transform: scale(1.1);
+}
+.projects-page .box .skills{
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: end;
+  gap: 5px;
+}
+.projects-page .box .skills .main-btn{
+  width: fit-content;
+}
+
+.projects-page .box .details{
+  padding-top:20px;
+  display: flex;
+  justify-content: space-between;
+}
+.projects-page .box .details .progress{
+  width: 250px;
+  height: 8px;
+  background-color: #eee;
+  border-radius: 10px;
+  position: relative;
+}
+.projects-page .box .details .progress::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  border-radius: 10px;
+  left: 0;
+}
+.projects-page .An1_sxd-Dashboard .details .progress::before{
+  width: 55%;
+  background-color: var(--red-color);
+}
+.projects-page .box .details .price::before{
+  content: '\24';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+@media (max-width:767px) {
+  .projects-page .box .skills{
+    flex-direction: column;
+    gap: 15px;
+  }
+  .projects-page .box .details{
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+}
+
+/* COURSES _____________________________________________________________________________________________________________________*/
+
+/* WIDGETS _____________________________________________________________________________________________________________________*/
+
+/* BOXES _____________________________________________________________________________________________________________________*/
+
+
+.courses .box .image .team{
+  width: 65px;
+  border: 2px solid white;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.courses .box .image .course{
+  max-width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+.courses .box .text p{
+  line-height: 1.7;
+}
+.courses .box .titre{
+  z-index: 1;
+}
+.courses .box .titre::before{
+  content: '';
+  position: absolute;
+  width: 2000px;
+  height: 1px;
+  background-color: #eee;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+.courses .box .info{
+  padding: 0 20px 10px;
+}
+.courses .box .info .member:before{
+  content: '\f007';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  margin-right: 5px;
+}
+.courses .box .info .price:before{
+  content: '\24';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+/* FREINDS _____________________________________________________________________________________________________________________*/
+
+/* WIDGETS _____________________________________________________________________________________________________________________*/
+
+/* BOXES _____________________________________________________________________________________________________________________*/
+
+.friends .box{
+  transition: var(--transition);
+}
+.friends .box:hover{
+  box-shadow: 0 2px 15px #ccc;
+}
+.friends .box:hover img{
+  transform: scale(1.1);
+}
+.friends .vip:hover .details::after{
+  opacity: 1;
+}
+.friends .box .icon{
+  gap: 5px;
+  color: #666;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.friends .box .icon div{
+  transition: var(--transition);
+}
+.friends .box .icon .call:hover{
+  background-color: var(--green-color);
+  color: white;
+}
+.friends .box .icon .message:hover{
+  background-color: var(--blue-color);
+  color: white;
+}
+
+.friends .box .info{
+  border-bottom: 1px solid #eee;
+}
+.friends .box .info img{
+  width: 100px;
+  transition: var(--transition);
+  margin-bottom: 10px;
+}
+
+.friends .box .details{
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+.friends .vip .details::after{
+  content: 'VIP';
+  position: absolute;
+  font-size: 45px;
+  font-weight: bolder;
+  color: var(--red-color);
+  opacity: 0.15;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: var(--transition);
+}
+.friends .box .details p:last-child{
+  padding: 0;
+}
+.friends .box .more{
+  padding-top: 10px;
+  gap: 20px;
+}
+.friends .box .more span{
+  white-space: nowrap;
+}
+.friends .box .more .buttons{
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: end;
+}
+.friends .box .more .buttons p{
+  cursor: pointer;
+}
+
+/* FILES _____________________________________________________________________________________________________________________*/
+
+/* WIDGETS _____________________________________________________________________________________________________________________*/
+
+.files .widgets{
+  align-items: start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* FILES-CONTENT _____________________________________________________________________________________________________________________*/
+
+.files .files-content{
+  flex: 1;
+}
+.files-content .box:hover .info img{
+  transform: rotate(5deg);
+}
+.files .files-content .info{
+  border-bottom: 1px solid #eee;
+}
+.files .files-content .box .info img{
+  width: 65px;
+  transition: var(--transition);
+}
+.files .files-content .box .info h3{
+  font-weight: normal;
+}
+.files .files-content .box .info > span{
+  text-align: left;
+  font-size: 13px;
+}
+.files .files-content .box .more{
+  padding-top: 10px;
+  font-size: 13px;
+}
+
+/* FILES-STATS _____________________________________________________________________________________________________________________*/
+
+.files .files-stats{
+  flex-basis: 260px;
+}
+.files .files-stats .boxes{
+  padding-top: 15px;
+}
+.files .files-stats .box{
+  gap: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+.files .files-stats .box i{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+.files .files-stats .box:nth-of-type(1) i{
+  background-color: #0075ff40;
+}
+.files .files-stats .box:nth-of-type(2) i{
+  background-color: #22c55e40;
+}
+.files .files-stats .box:nth-of-type(3) i{
+  background-color: #f4433640;
+}
+.files .files-stats .box:nth-of-type(4) i{
+  background-color: #f59e0b40;
+}
+.files .files-stats .box .text span{
+  padding-top: 5px;
+}
+.files .files-stats .box .size{
+  margin-left: auto;
+}
+
+.files .files-stats .main-btn{
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.files .files-stats .main-btn::before{
+  content: '\f102';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 14px;
+}
+.files .files-stats .main-btn:hover::before{
+  animation: Up-Down 0.7s infinite;
+}
+.files .files-stats .main-btn:hover{
+  background-color: var(--blue-alt-color);
+}
+
+@media (max-width:767px) {
+  .files .files-stats{
+    flex-basis: 100%;
+    order: -1;
+  }
+}
+
+@keyframes Up-Down {
+  0%,100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-5px);
+  }
+}
+
+/* PLANS _____________________________________________________________________________________________________________________*/
+
+/* WIDGETS _____________________________________________________________________________________________________________________*/
+
+/* BOXES _____________________________________________________________________________________________________________________*/
+
+.plans .box .price{
+  padding: 30px;
+  border: 3px solid white;
+  margin-bottom: 20px;
+}
+.plans .box:nth-of-type(1) .price{
+  outline: 3px solid var(--green-color);
+}
+.plans .box:nth-of-type(2) .price{
+  outline: 3px solid var(--blue-color);
+}
+.plans .box:nth-of-type(3) .price{
+  outline: 3px solid var(--orange-color);
+}
+.plans .box .price h1{
+  font-size: 40px;
+  display: inline-block;
+}
+.plans .box .price h1::before{
+  content: '\24';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  font-size: 25px;
+  top: -7px;
+  left: -20px;
+}
+
+.plans .box .details li{
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+  padding-right: 20px;
+  display: flex;
+}
+.plans .box .details li::after{
+  content: '\f129';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  color: white;
+  font-size: 7px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  background-color: #777;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.plans .box .details .verified::before{
+  content: '\f00c';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 18px;
+  margin-right: 10px;
+  color: var(--green-color);
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  text-align: center;
+}
+.plans .box .details .unverified::before{
+  content: '\f00d';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 18px;
+  margin-right: 10px;
+  color: var(--red-color);
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  text-align: center;
+}
+.plans .box p{
+  margin-top: 15px;
+}
